@@ -25,7 +25,12 @@ function App() {
     if (question) {
       if (localStorage.getItem("history")) {
         let history = JSON.parse(localStorage.getItem("history"));
+        history = history.slice(0, 21);
         history = [question, ...history];
+        history = history.map(
+          (item) => item.charAt(0).toUpperCase() + item.slice(1).trim()
+        );
+        history = [...new Set(history)];
         localStorage.setItem("history", JSON.stringify(history));
         setRecentHistory(history);
       } else {
@@ -159,7 +164,7 @@ function App() {
             {/* ✅ Updated button styling for light mode */}
             <button
               onClick={askQuestion}
-              className="dark:bg-zinc-800 bg-pink-300 dark:text-white text-zinc-800 px-3 rounded-r-4xl hover:bg-pink-400 dark:hover:bg-zinc-700 transition-colors"
+              className="dark:bg-zinc-800 bg-00 dark:text-white text-zinc-800 px-3 rounded-r-4xl hover:bg-pink-400 dark:hover:bg-zinc-700 transition-colors"
             >
               Ask
             </button>
