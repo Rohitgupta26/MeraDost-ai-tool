@@ -161,7 +161,7 @@ function App() {
               placeholder="Ask me Anything"
               style={{ border: "none", boxShadow: "none" }}
             />
-            {/* ✅ Updated button styling for light mode */}
+
             <button
               onClick={askQuestion}
               className="dark:bg-zinc-800 bg-00 dark:text-white text-zinc-800 px-3 rounded-r-4xl hover:bg-pink-400 dark:hover:bg-zinc-700 transition-colors"
